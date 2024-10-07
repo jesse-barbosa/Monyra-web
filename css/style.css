@@ -1,0 +1,82 @@
+/* Importação da fonte Josefin Sans - Utilizada nos links, e nos parágrafos */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Importação da fonte Anton - Utilizada nos títulos, e em textos destaque */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/* Estilos globais */
+*{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+img{
+    max-width: 100%;
+}
+body{
+    background-color: #151515 !important;
+}
+
+/* header */
+header{
+    position: sticky;
+    padding-top: 1%;
+    border-end-end-radius: 2rem;
+    border-end-start-radius: 2rem;
+    top: 0%;
+    background-color: #151515b7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem auto 4rem auto; 
+    max-width: 1400px; 
+}
+.header-logo{
+    color: #FFFFFFE5;
+    align-self: center;
+    font-size: 26px;
+}
+
+/* Main */
+main{
+    background-color: #1A1A1A;
+}
+main .container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 8rem auto;
+    max-width: 1100px;
+    gap: 6rem;
+   
+}
+main img{
+    height: 600px;
+    margin-top: -2rem;
+}
+main h1{
+    margin-top: 3rem;
+    text-align: start;
+    color: #fff;
+    font-size: 50px;
+    font-family: "Anton", sans-serif;   
+    font-weight: 400;
+    font-style: normal;
+}
+main p{
+    margin-top: 4rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 40ch;
+}
+
+/* Footer */
+footer {
+    background-color: #1A1A1A;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

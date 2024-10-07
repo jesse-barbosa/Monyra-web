@@ -1,0 +1,77 @@
+/* Estilos para o menu */
+body {
+    background-color: #e6e6e6 !important;
+}
+.bg-gray {
+    background-color: #e6e6e6 !important;
+}
+
+/* Estilização geral */
+.menu {
+    background-color: #e6e6e6 !important;
+    border-radius: 15px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu .nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu .nav-item {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #505050;
+    transition: color 0.3s ease;
+}
+
+/* Estilos ao passar o mouse */
+.menu-link:hover .nav-item {
+    background-color: #5019D4;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Estilo do link ativo */
+.menu-link.active .nav-item {
+    background-color: #5019D4;
+    color: white;
+}
+
+/* Ícones */
+.menu .nav-item i {
+    font-size: 20px;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+/* Ícones ao passar o mouse */
+.menu-link:hover i {
+    color: #fff;
+}
+
+/* Transições suaves */
+.menu .nav-item {
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+/* Estilização da opção de "Sair" na parte inferior */
+.menu-link.mt-auto {
+    margin-top: auto;
+}
