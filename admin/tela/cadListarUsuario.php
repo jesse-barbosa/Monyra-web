@@ -3,46 +3,47 @@
 include_once("../classe/AdicionarItem.php");
 
 if (isset($_POST['enviar'])) {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);  // Hash da senha
-    $access_level = $_POST['access_level'];
-    $cpf = $_POST['cpf'];
-    $telefone = $_POST['telefone'];
-    $situacao = $_POST['situacao'];
+    $nameUser = $_POST['nameUser'];
+    $emailUser = $_POST['emailUser'];
+    $passwordUser = password_hash($_POST['passwordUser'], PASSWORD_DEFAULT);  // Hash da senha
+    $descUser = $_POST['descUser'];
+    $incomeUser = $_POST['incomeUser'];
+    $balanceUser = $_POST['balanceUser'];
+    $iconUser = $_POST['iconUser'];
+    $type_user = $_POST['type_user'];
 
     $usuario = new Adicionar();
-    $usuario->adicionarUsuario($nome, $email, $senha, $access_level, $cpf, $telefone, $situacao);
+    $usuario->adicionarUsuario($nameUser, $emailUser, $passwordUser, $descUser, $incomeUser, $balanceUser, $iconUser, $type_user);
 }
 
 // Editar
 include_once("../classe/AlterarItem.php");
 
 if (isset($_POST['editar'])) {
-    $idUsuario = $_POST['idUsuario'];
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $access_level = $_POST['access_level'];
-    $cpf = $_POST['cpf'];
-    $phone = $_POST['telefone'];
-    $situacao = $_POST['situacao'];
+    $codUser = $_POST['codUser'];
+    $nameUser = $_POST['nameUser'];
+    $emailUser = $_POST['emailUser'];
+    $passwordUser = $_POST['passwordUser'];
+    $descUser = $_POST['descUser'];
+    $incomeUser = $_POST['incomeUser'];
+    $balanceUser = $_POST['balanceUser'];
+    $iconUser = $_POST['iconUser'];
+    $type_user = $_POST['type_user'];
 
     $usuario = new Alterar();
-
-    $usuario->alterarUsuario($idUsuario, $nome, $email, $senha,  $access_level, $cpf, $phone, $situacao);
-
+    $usuario->alterarUsuario($codUser, $nameUser, $emailUser, $passwordUser, $descUser, $incomeUser, $balanceUser, $iconUser, $type_user);
 }
 
 // Apagar
 include_once("../classe/ApagarItem.php");
 
-if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['idUsuario'])) {
-    $idUsuario = intval($_GET['idUsuario']);
+if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codUser'])) {
+    $codUser = intval($_GET['codUser']);
     $apagarUsuario = new Apagar();
-    $apagarUsuario->apagarUsuario($idUsuario);
-    }
+    $apagarUsuario->apagarUsuario($codUser);
+}
 ?>
+
 
 <!-- Cadastro de dados -->
 <div class="section mt-2 mb-4">
@@ -95,56 +96,55 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['idUsu
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar novo
-                    item</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Novo Usuário</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="index.php?tela=cadListarUsuario" method="post" enctype="multipart/form-data">
-            <div class="modal-body text-start">
-                <div class="mb-3">
-                    <label for="nomeUsuario" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nomeUsuario" name="nome" required>
+                <div class="modal-body text-start">
+                    <div class="mb-3">
+                        <label for="nameUser" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nameUser" name="nameUser" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailUser" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="emailUser" name="emailUser" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordUser" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="passwordUser" name="passwordUser">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descUser" class="form-label">Descrição</label>
+                        <input type="text" class="form-control" id="descUser" name="descUser" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="incomeUser" class="form-label">Renda</label>
+                        <input type="text" class="form-control" id="incomeUser" name="incomeUser">
+                    </div>
+                    <div class="mb-3">
+                        <label for="balanceUser" class="form-label">Saldo</label>
+                        <input type="number" class="form-control" id="balanceUser" name="balanceUser" step="0.01">
+                    </div>
+                    <div class="mb-3">
+                        <label for="iconUser" class="form-label">Ícone</label>
+                        <input type="text" class="form-control" id="iconUser" name="iconUser">
+                    </div>
+                    <div class="mb-3">
+                        <label for="type_user" class="form-label">Tipo</label>
+                        <select class="form-select" id="type_user" name="type_user" required>
+                            <option value='0'>Default</option>
+                            <option value='1'>Admin</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="emailUsuario" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailUsuario" name="email" required>
+                <div class="modal-footer">
+                    <button type="submit" name="enviar" class="btn btn-dark form-control">Adicionar</button>
                 </div>
-                <div class="mb-3">
-                    <label for="senhaUsuario" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="senhaUsuario" name="senha">
-                </div>
-                <div class="mb-3">
-                    <label for="access_levelUser" class="form-label">Tipo</label>
-                    <select class="form-select" id="access_level" name="access_level" required>
-                        <option value='0'>Default</option>
-                        <option value='1'>Admin</option>
-                        <option value='2'>Admin-Master</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="cpfUsuario" class="form-label">CPF</label>
-                    <input type="number" class="form-control" id="cpfUsuario" name="cpf">
-                </div>
-                <div class="mb-3">
-                    <label for="telefoneUsuario" class="form-label">Telefone</label>
-                    <input type="number" class="form-control" id="phoneUsuario" name="telefone">
-                </div>
-                <div class="mb-3">
-                    <label for="situacaoUsuario" class="form-label">Situação</label>
-                    <select class="form-select" id="situacaoUsuario" name="situacao" required>
-                        <option value='ATIVO'>ATIVO</option>
-                        <option value='DESATIVO'>DESATIVO</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" name="enviar" class="btn btn-dark form-control">Adicionar</button>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 </div>
+
 <!-- Modal de Edição -->
 <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -155,50 +155,52 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['idUsu
             </div>
             <form action="index.php?tela=cadListarUsuario" method="post" enctype="multipart/form-data" id="editUserForm">
                 <div class="modal-body">
-                    <input type="hidden" name="idUsuario" id="editIdUsuario">
+                    <input type="hidden" name="codUser" id="editCodUser">
                     <div class="mb-3">
-                        <label for="editNomeUsuario" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="editNomeUsuario" name="nome" required>
+                        <label for="editNameUser" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="editNameUser" name="nameUser" required>
                     </div>
                     <div class="mb-3">
-                        <label for="editEmailUsuario" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="editEmailUsuario" name="email" required>
+                        <label for="editEmailUser" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="editEmailUser" name="emailUser" required>
                     </div>
                     <div class="mb-3">
-                        <label for="editSenhaUsuario" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="editSenhaUsuario" name="senha">
+                        <label for="editPasswordUser" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="editPasswordUser" name="passwordUser">
                     </div>
                     <div class="mb-3">
-                        <label for="editAccessLevel" class="form-label">Tipo</label>
-                        <select class="form-select" id="editAccessLevel" name="access_level" required>
+                        <label for="editDescUser" class="form-label">Descrição</label>
+                        <input type="text" class="form-control" id="editDescUser" name="descUser" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editIncomeUser" class="form-label">Renda</label>
+                        <input type="text" class="form-control" id="editIncomeUser" name="incomeUser">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editBalanceUser" class="form-label">Saldo</label>
+                        <input type="number" class="form-control" id="editBalanceUser" name="balanceUser" step="0.01">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editIconUser" class="form-label">Ícone</label>
+                        <input type="text" class="form-control" id="editIconUser" name="iconUser">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTypeUser" class="form-label">Tipo</label>
+                        <select class="form-select" id="editTypeUser" name="type_user" required>
                             <option value='0'>Default</option>
                             <option value='1'>Admin</option>
-                            <option value='2'>Admin-Master</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editCPFUsuario" class="form-label">CPF</label>
-                        <input type="number" class="form-control" id="editCpfUsuario" name="cpf">
-                    </div>
-                    <div class="mb-3">
-                        <label for="editTelefoneUsuario" class="form-label">Telefone</label>
-                        <input type="number" class="form-control" id="editTelefoneUsuario" name="telefone">
-                    </div>
-                    <div class="mb-3">
-                        <label for="editSituacaoUsuario" class="form-label">Situação</label>
-                        <select class="form-select" id="editSituacaoUsuario" name="situacao" required>
-                            <option value='ATIVO'>ATIVO</option>
-                            <option value='DESATIVO'>DESATIVO</option>
                         </select>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" name="editar" class="btn btn-dark form-control">Salvar alterações</button>
+                    <button type="submit" name="editar" class="btn btn-dark form-control">Salvar Alterações</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
 <!-- Modal de Confirmação de Exclusão -->
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -222,14 +224,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['idUsu
 document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelectorAll('.bi-pencil').forEach(button => {
         button.addEventListener('click', function () {
-            console.log('Tipo:', this.dataset.type);
-            document.getElementById('editIdUsuario').value = this.dataset.id;
-            document.getElementById('editNomeUsuario').value = this.dataset.nome;
-            document.getElementById('editEmailUsuario').value = this.dataset.email;
-            document.getElementById('editCpfUsuario').value = this.dataset.cpf;
-            document.getElementById('editTelefoneUsuario').value = this.dataset.phone;
-            document.getElementById('editAccessLevel').value = this.dataset.accesslevel;
-            document.getElementById('editSituacaoUsuario').value = this.dataset.situacao;
+            document.getElementById('editCodUser').value = this.dataset.coduser;
+            document.getElementById('editNameUser').value = this.dataset.nameuser;
+            document.getElementById('editEmailUser').value = this.dataset.emailuser;
+            document.getElementById('editDescUser').value = this.dataset.descuser;
+            document.getElementById('editIncomeUser').value = this.dataset.incomeuser;
+            document.getElementById('editBalanceUser').value = this.dataset.balanceuser;
+            document.getElementById('editIconUser').value = this.dataset.iconuser;
+            document.getElementById('editTypeUser').value = this.dataset.typeuser;
 
             const modal = new bootstrap.Modal(document.getElementById('editUserModal'));
             modal.show();

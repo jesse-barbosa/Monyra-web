@@ -62,9 +62,9 @@
             <h3 class="mb-4 text-secondary fw-normal">Total Registros</h3>
             <?php
             $cards = [
-                ['icon' => 'bi-people', 'file' => 'MostrarItem', 'class' => 'Mostrar', 'method' => 'totalUsers', 'label' => 'Total de Usuários'],
-                ['icon' => 'bi-bookmark', 'file' => 'MostrarItem', 'class' => 'Mostrar', 'method' => 'totalGoals', 'label' => 'Total de Metas'],
-                ['icon' => 'bi-currency-exchange', 'file' => 'MostrarItem', 'class' => 'Mostrar', 'method' => 'totalTransfers', 'label' => 'Total de Transferências']
+                ['icon' => 'bi-people', 'file' => 'MostrarItem', 'class' => 'Mostrar', 'method' => 'totalUsuarios', 'label' => 'Total de Usuários'],
+                ['icon' => 'bi-bookmark', 'file' => 'MostrarItem', 'class' => 'Mostrar', 'method' => 'totalMetas', 'label' => 'Total de Metas'],
+                ['icon' => 'bi-currency-exchange', 'file' => 'MostrarItem', 'class' => 'Mostrar', 'method' => 'totalTransactions', 'label' => 'Total de Transferências']
             ];
 
             foreach ($cards as $card) {

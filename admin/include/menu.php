@@ -12,10 +12,10 @@
         <a class="menu-link <?php echo ($_GET['tela'] == 'cadListarUsuario') ? 'active' : ''; ?>" href="?tela=cadListarUsuario"><li class="nav-item"> 
             <i class="bi bi-people"></i> Usuários
         </li></a>
-        <a class="menu-link <?php echo ($_GET['tela'] == 'cadListarPedido') ? 'active' : ''; ?>" href="?tela=cadListarPedido"><li class="nav-item"> 
+        <a class="menu-link <?php echo ($_GET['tela'] == 'cadListarTransferencias') ? 'active' : ''; ?>" href="?tela=cadListarTransferencias"><li class="nav-item"> 
             <i class="bi bi-currency-exchange"></i> Transações
         </li></a>
-        <a class="menu-link ' . (($_GET['tela'] == 'cadListarCategoria') ? 'active' : '') . '" href="?tela=cadListarCategoria">
+        <a class="menu-link <?php echo ($_GET['tela'] == 'cadListarMetas') ? 'active' : ''; ?>" '" href="?tela=cadListarMetas">
             <li class="nav-item"> 
                 <i class="bi bi-bookmark"></i> Metas
             </li>
