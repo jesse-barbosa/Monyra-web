@@ -3,74 +3,143 @@
 
 /* Importação da fonte Anton - Utilizada nos títulos, e em textos destaque */
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* Animação para as seções */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* Estilos globais */
-*{
+* {
     list-style-type: none;
     margin: 0;
     padding: 0;
     text-decoration: none;
     font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
 }
-img{
-    max-width: 100%;
-}
-body{
+body {
     background-color: #151515 !important;
 }
 
 /* header */
-header{
+header {
     position: sticky;
     padding-top: 1%;
-    border-end-end-radius: 2rem;
-    border-end-start-radius: 2rem;
     top: 0%;
     background-color: #151515b7;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 1rem auto 4rem auto; 
-    max-width: 1400px; 
+    max-width: 1400px;
 }
-.header-logo{
+.header-logo {
     color: #FFFFFFE5;
     align-self: center;
     font-size: 26px;
 }
 
 /* Main */
-main{
+main {
     background-color: #1A1A1A;
 }
-main .container{
+main .container {
     display: flex;
     justify-content: center;
     margin: 0 auto 8rem auto;
     max-width: 1100px;
     gap: 6rem;
-   
 }
-main img{
+main img {
     height: 600px;
     margin-top: -2rem;
 }
-main h1{
+main h1 {
     margin-top: 3rem;
     text-align: start;
     color: #fff;
     font-size: 50px;
     font-family: "Anton", sans-serif;   
-    font-weight: 400;
-    font-style: normal;
 }
-main p{
+main p {
     margin-top: 4rem;
     text-align: center;
     color: #fff;
     font-size: 1.2rem;
     max-width: 40ch;
+}
+
+/* Estilos para a página de planos */
+h1 {
+    color: #fff;
+    font-family: "Anton", sans-serif;
+    font-size: 3rem;
+}
+
+.card {
+    background-color: #222 !important;
+    color: #fff !important;
+}
+
+.section-img {
+    width: 100%; /* Ajuste o tamanho das imagens para serem responsivas */
+    max-width: 400px; /* Defina um tamanho máximo se necessário */
+}
+
+.animate-section {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Mova ligeiramente para baixo */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
+}
+
+.animate-section.active {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Volta à posição original */
+}
+
+/* Ajuste o layout para melhorar a exibição */
+.row {
+    margin: 20px 0; /* Adicione margem entre as seções */
+}
+
+.text-center {
+    text-align: center; /* Alinhamento central */
+}
+
+.card-title {
+    font-size: 2rem;
+}
+
+.card-price {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.animate-plan {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-plan.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .card-price {
+        font-size: 1.2rem;
+    }
 }
 
 /* Footer */
