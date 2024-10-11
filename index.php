@@ -32,9 +32,9 @@
 <main>
 <section>
     <div class="container">
-        <div class="row animate-section">
+        <div class="row">
             <div class="col">
-                <img class="section-img" src="img/smartphone1.png" alt="Smartphone 1">
+                <img src="img/smartphone1.png" class="section-img" alt="Smartphone 1">
             </div>
             <div class="col">
                 <h1>EDUCAÇÃO FINANCEIRA NA PRÁTICA.</h1>
@@ -43,20 +43,20 @@
         </div>
     </div>
     <div class="container">
-        <div class="row animate-section">
+        <div class="row">
             <div class="col">
                 <h1>SUA VIDA FINANCEIRA ORGANIZADA</h1>
                 <p>Faça transferências, configure contas, e receba avisos de futuros pagamentos, para não correr risco de ficar negativado.</p>
             </div>
             <div class="col text-end">
-                <img src="img/smartphone2.png" alt="Smartphone 2" class="section-img">
+                <img src="img/smartphone2.png" class="section-img w-75" alt="Smartphone 2" >
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row animate-section">
+        <div class="row">
             <div class="col">
-                <img class="section-img" src="img/smartphone3.png" alt="Smartphone 3">
+                <img src="img/smartphone3.png" class="section-img w-75" alt="Smartphone 3">
             </div>
             <div class="col">
                 <h1>COMPARTILHE METAS E OBJETIVOS</h1>
@@ -65,106 +65,50 @@
         </div>
     </div>
 </section>
-    <!-- Seção Planos -->
-    <section id="planos" class="py-5">
-        <div class="container text-center">
-            <h1 class="text-center py-2">Escolha o seu Plano</h1>
-            <h5 class="text-center text-white pt-3 pb-4">Encontre o plano que melhor se adapta às suas necessidades financeiras.</h5>
-            <div class="row">
-                <div class="col-md-4 animate-plan">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-body">
-                            <h2 class="card-title">Plano Básico</h2>
-                            <h3 class="card-price">R$ 29,90/mês</h3>
-                            <p class="card-text">Ideal para quem está começando a organizar suas finanças.</p>
-                            <button class="btn btn-primary">Assinar</button>
-                        </div>
+<!-- Seção Planos -->
+<section id="planos" class="py-5">
+    <div class="container flex-column text-center">
+        <h1 class="text-center py-2">Escolha o seu Plano</h1>
+        <h5 class="text-center text-white pt-3 pb-4">Encontre o plano que melhor se adapta às suas necessidades financeiras.</h5>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 py-3">
+                    <div class="card-body">
+                        <h2 class="card-title">Plano Básico</h2>
+                        <h3 class="card-price">R$ 29,90/mês</h3>
+                        <p class="card-text">Ideal para quem está começando a organizar suas finanças.</p>
+                        <button class="btn btn-purple form-control text-white">Assinar</button>
                     </div>
                 </div>
-                <div class="col-md-4 animate-plan">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-body">
-                            <h2 class="card-title">Plano Padrão</h2>
-                            <h3 class="card-price">R$ 49,90/mês</h3>
-                            <p class="card-text">Para quem deseja ter mais controle e recursos financeiros.</p>
-                            <button class="btn btn-primary">Assinar</button>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 py-3">
+                    <div class="card-body">
+                        <h2 class="card-title">Plano Padrão</h2>
+                        <h3 class="card-price">R$ 49,90/mês</h3>
+                        <p class="card-text">Para quem deseja ter mais controle e recursos financeiros.</p>
+                        <button class="btn btn-purple form-control text-white">Assinar</button>
                     </div>
                 </div>
-                <div class="col-md-4 animate-plan">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-body">
-                            <h2 class="card-title">Plano Premium</h2>
-                            <h3 class="card-price">R$ 79,90/mês</h3>
-                            <p class="card-text">Para aqueles que buscam a melhor experiência e benefícios exclusivos.</p>
-                            <button class="btn btn-primary">Assinar</button>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 py-3">
+                    <div class="card-body">
+                        <h2 class="card-title">Plano Premium</h2>
+                        <h3 class="card-price">R$ 79,90/mês</h3>
+                        <p class="card-text">Para aqueles que buscam a melhor experiência e benefícios exclusivos.</p>
+                        <button class="btn btn-purple form-control text-white">Assinar</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Seção Suporte -->
-    <section id="suporte" class="py-5">
-        <div class="container">
-            <h1 class="text-center py-4">Suporte</h1>
-            <p class="text-center">Caso tenha alguma dúvida ou precise de assistência, entre em contato conosco.</p>
-
-            <!-- FAQ -->
-            <div class="faq-section">
-                <h2>Perguntas Frequentes</h2>
-                <div class="faq-item">
-                    <h3 class="faq-question">Como posso alterar meu plano?</h3>
-                    <p class="faq-answer">Você pode alterar seu plano acessando a sua conta e selecionando a opção de gerenciamento de planos.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Quais formas de pagamento são aceitas?</h3>
-                    <p class="faq-answer">Aceitamos cartões de crédito, débito e pagamento via boleto bancário.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Como entro em contato com o suporte?</h3>
-                    <p class="faq-answer">Você pode entrar em contato conosco pelo e-mail suporte@monyra.com ou através das redes sociais abaixo.</p>
-                </div>
-            </div>
-
-            <!-- Redes Sociais Fictícias -->
-            <div class="social-media">
-                <h2>Siga-nos nas redes sociais</h2>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 </main>
 
 <?php
     include_once("include/footer.php");
 ?>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const animateSections = document.querySelectorAll('.animate-section');
-
-    function checkVisibility() {
-        animateSections.forEach(section => {
-            if (isElementInViewport(section)) {
-                section.classList.add('active');
-            }
-        });
-    }
-
-    // Escuta o evento de scroll
-    window.addEventListener('scroll', checkVisibility);
-
-    // Verifica a visibilidade no carregamento inicial
-    checkVisibility();
-});
-
-
-</script>
 </body>
 </html>

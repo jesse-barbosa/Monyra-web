@@ -26,7 +26,10 @@
 body {
     background-color: #151515 !important;
 }
-
+/* Botões personalizados */
+.btn-purple {
+    background-color: #5019D4 !important;
+}
 /* header */
 header {
     position: sticky;
@@ -38,6 +41,7 @@ header {
     align-items: center;
     margin: 1rem auto 4rem auto; 
     max-width: 1400px;
+    z-index: 1;
 }
 .header-logo {
     color: #FFFFFFE5;
@@ -88,28 +92,16 @@ h1 {
 }
 
 .section-img {
-    width: 100%; /* Ajuste o tamanho das imagens para serem responsivas */
-    max-width: 400px; /* Defina um tamanho máximo se necessário */
+    width: 100%;
+    max-width: 400px;
 }
 
-.animate-section {
-    opacity: 0; /* Começa invisível */
-    transform: translateY(20px); /* Mova ligeiramente para baixo */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
-}
-
-.animate-section.active {
-    opacity: 1; /* Torna visível */
-    transform: translateY(0); /* Volta à posição original */
-}
-
-/* Ajuste o layout para melhorar a exibição */
 .row {
-    margin: 20px 0; /* Adicione margem entre as seções */
+    margin: 20px 0;
 }
 
 .text-center {
-    text-align: center; /* Alinhamento central */
+    text-align: center;
 }
 
 .card-title {
@@ -119,17 +111,6 @@ h1 {
 .card-price {
     font-size: 1.5rem;
     margin: 1rem 0;
-}
-
-.animate-plan {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.animate-plan.active {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Responsividade */
