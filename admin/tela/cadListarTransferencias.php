@@ -10,7 +10,7 @@ if (isset($_POST['enviar'])) {
     $userCod = $_POST['userCod'];
 
     $transferencias = new Adicionar();
-    $transferencias->adicionarTransferencias($value, $desc, $type, $category, $userCod);
+    $transferencias->adicionarTransferencia($value, $desc, $type, $category, $userCod);
 }
 
 // Editar
@@ -22,10 +22,12 @@ if (isset($_POST['editar'])) {
     $desc = $_POST['descTransaction'];
     $type = $_POST['typeTransaction'];
     $category = $_POST['categoryTransaction'];
+    $userCod = $_POST['userCod'];
 
     $transferencias = new Alterar();
-    $transferencias->alterarTransferencias($codTransaction, $value, $desc, $type, $category);
+    $transferencias->alterarTransferencia($codTransaction, $value, $desc, $type, $category, $userCod); // Passa o userCod também
 }
+
 
 // Apagar
 include_once("../classe/ApagarItem.php");
@@ -33,7 +35,7 @@ include_once("../classe/ApagarItem.php");
 if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codTransaction'])) {
     $codTransaction = intval($_GET['codTransaction']);
     $apagarTransferencias = new Apagar();
-    $apagarTransferencias->apagarTransferencias($codTransaction);
+    $apagarTransferencias->apagarTransferencia($codTransaction);
 }
 ?>
 
@@ -82,6 +84,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codTr
         </div>
     </div>
 </div>
+
 <!-- Modal de Cadastro -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -103,13 +106,29 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codTr
                     <div class="mb-3">
                         <label for="typeTransaction" class="form-label">Tipo</label>
                         <select class="form-select" id="typeTransaction" name="typeTransaction" required>
-                            <option value="Entrada">Entrada</option>
-                            <option value="Saída">Saída</option>
+                            <option value="expense">Gasto</option>
+                            <option value="gain">Ganho</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="categoryTransaction" class="form-label">Categoria</label>
-                        <input type="text" class="form-control" id="categoryTransaction" name="categoryTransaction" required>
+                        <select class="form-select" id="categoryTransaction" name="categoryTransaction" required>
+                            <option value="">Selecione uma categoria</option>
+                            <!-- Categorias de Saída -->
+                            <option value="Moradia">Moradia</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Vestuário">Vestuário</option>
+                            <option value="Economia">Economia ou Investimentos</option>
+                            <!-- Categorias de Entrada -->
+                            <option value="Remunerações">Salário ou Remunerações</option>
+                            <option value="Rendimentos">Investimentos (Rendimentos)</option>
+                            <option value="Empreendimentos">Empreendimentos</option>
+                            <option value="Benefícios">Benefícios</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="userCod" class="form-label">Usuário</label>
@@ -124,6 +143,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codTr
     </div>
 </div>
 
+
 <!-- Modal de Edição -->
 <div class="modal fade" id="editTransactionModal" tabindex="-1" aria-labelledby="editTransactionModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -133,28 +153,48 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codTr
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="index.php?tela=cadListarTransferencias" method="post" enctype="multipart/form-data" id="editTransactionForm">
-                <div class="modal-body">
-                    <input type="hidden" name="codTransaction" id="editCodTransaction">
-                    <div class="mb-3">
-                        <label for="editValueTransaction" class="form-label">Valor</label>
-                        <input type="number" class="form-control" id="editValueTransaction" name="valueTransaction" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editDescTransaction" class="form-label">Descrição</label>
-                        <input type="text" class="form-control" id="editDescTransaction" name="descTransaction" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editTypeTransaction" class="form-label">Tipo</label>
-                        <select class="form-select" id="editTypeTransaction" name="typeTransaction" required>
-                            <option value="expense">Gasto</option>
-                            <option value="gain">Ganho</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editCategoryTransaction" class="form-label">Categoria</label>
-                        <input type="text" class="form-control" id="editCategoryTransaction" name="categoryTransaction" required>
-                    </div>
+            <div class="modal-body">
+                <input type="hidden" name="codTransaction" id="editCodTransaction">
+                <div class="mb-3">
+                    <label for="editValueTransaction" class="form-label">Valor</label>
+                    <input type="number" class="form-control" id="editValueTransaction" name="valueTransaction" required>
                 </div>
+                <div class="mb-3">
+                    <label for="editDescTransaction" class="form-label">Descrição</label>
+                    <input type="text" class="form-control" id="editDescTransaction" name="descTransaction" required>
+                </div>
+                <div class="mb-3">
+                    <label for="editTypeTransaction" class="form-label">Tipo</label>
+                    <select class="form-select" id="editTypeTransaction" name="typeTransaction" required>
+                        <option value="expense">Gasto</option>
+                        <option value="gain">Ganho</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="editCategoryTransaction" class="form-label">Categoria</label>
+                    <select class="form-select" id="editCategoryTransaction" name="categoryTransaction" required>
+                        <option value="">Selecione uma categoria</option>
+                        <!-- Categorias de Saída -->
+                        <option value="Moradia">Moradia</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Vestuário">Vestuário</option>
+                        <option value="Economia">Economia ou Investimentos</option>
+                        <!-- Categorias de Entrada -->
+                        <option value="Remunerações">Salário ou Remunerações</option>
+                        <option value="Rendimentos">Investimentos (Rendimentos)</option>
+                        <option value="Empreendimentos">Empreendimentos</option>
+                        <option value="Benefícios">Benefícios</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="editUserCodTransaction" class="form-label">Usuário</label>
+                    <input type="number" class="form-control" id="editUserCodTransaction" name="userCod" required>
+                </div>
+            </div>
                 <div class="modal-footer">
                     <button type="submit" name="editar" class="btn btn-dark form-control">Salvar alterações</button>
                 </div>
@@ -162,6 +202,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codTr
         </div>
     </div>
 </div>
+
 <!-- Modal de Confirmação de Exclusão -->
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -187,6 +228,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelectorAll('.bi-pencil').forEach(button => {
         button.addEventListener('click', function () {
             document.getElementById('editCodTransaction').value = this.dataset.id;
+            document.getElementById('editUserCodTransaction').value = this.dataset.user;
             document.getElementById('editValueTransaction').value = this.dataset.value;
             document.getElementById('editDescTransaction').value = this.dataset.desc;
             document.getElementById('editTypeTransaction').value = this.dataset.type;

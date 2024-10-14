@@ -37,8 +37,8 @@ if (isset($_POST['editar'])) {
 // Apagar
 include_once("../classe/ApagarItem.php");
 
-if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codUser'])) {
-    $codUser = intval($_GET['codUser']);
+if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['idUsuario'])) {
+    $codUser = intval($_GET['idUsuario']);
     $apagarUsuario = new Apagar();
     $apagarUsuario->apagarUsuario($codUser);
 }

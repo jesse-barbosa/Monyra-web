@@ -57,7 +57,6 @@ class Mostrar extends CriaPaginacao {
                             <th class='text-secondary fw-light'>Saldo</th>
                             <th class='text-secondary fw-light'>Ícone</th>
                             <th class='text-secondary fw-light'>Acesso</th>
-
                             <th width='30'></th>
                             <th width='30'></th>
                         </tr>
@@ -75,8 +74,8 @@ class Mostrar extends CriaPaginacao {
                         echo "<td class='fw-light'>".$resultado['incomeUser']."</td>";
                         echo "<td class='fw-light'>".$resultado['balanceUser']."</td>";
                         echo "<td class='fw-light'>".$resultado['iconUser']."</td>";
-                        echo "<td class='fw-light'>".$resultado['type_user']."</td>";
-                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-codUser='".$resultado['codUser']."' data-nameUser='".$resultado['nameUser']."' data-emailUser='".$resultado['emailUser']."' data-descUser='".$resultado['descUser']."' data-incomeUser='".$resultado['incomeUser']."' data-balanceUser='".$resultado['balanceUser']."' data-iconUser='".$resultado['iconUser']."' data-typeuser='".$resultado['type_user']."'></a></td>";
+                        echo "<td class='fw-light'>".$resultado['typeUser']."</td>";
+                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-codUser='".$resultado['codUser']."' data-nameUser='".$resultado['nameUser']."' data-emailUser='".$resultado['emailUser']."' data-descUser='".$resultado['descUser']."' data-incomeUser='".$resultado['incomeUser']."' data-balanceUser='".$resultado['balanceUser']."' data-iconUser='".$resultado['iconUser']."' data-typeuser='".$resultado['typeUser']."'></a></td>";
                         echo "<td><a href='#' class='bi bi-trash btn btn-dark' data-id='".$resultado['codUser']."'></a></td>";
                     echo "</tr>";
                 }
@@ -103,57 +102,56 @@ class Mostrar extends CriaPaginacao {
     }
     public function mostrarTransferencias() {
         try {
-            $sql = "SELECT * FROM tbtransactions";
+            $sql = "SELECT * FROM tbtransactions ORDER BY codTransaction DESC";
+
+            // Configurações de paginação
             $this->setParametro($this->strNumPagina);
             $this->setFileName($this->strUrl);
             $this->setInfoMaxPag(6);
             $this->setMaximoLinks(9);
             $this->setSQL($sql);
-            self::iniciaPaginacao();
+            $this->iniciaPaginacao();
             $contador = 0;
-            $categorias = $this->results();
 
-            if (count($categorias) > 0) {
-                echo "
-                <table class='table table-hover'>
-                    <thead>
-                        <tr class='text-center'>
-                            <th class='text-secondary fw-light'>ID</th>
-                            <th class='text-secondary fw-light'>Valor</th>
-                            <th class='text-secondary fw-light'>Descrição</th>
-                            <th class='text-secondary fw-light'>Tipo</th>
-                            <th class='text-secondary fw-light'>Categoria</th>
-                            <th class='text-secondary fw-light'>Usuário</th>
-                            <th class='text-secondary fw-light'>Data</th>
-                            <th width='30'></th>
-                            <th width='30'></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                ";
-                foreach($categorias as $resultado){
+            $transferencias = $this->results();
+
+            if (count($transferencias) > 0) {
+                echo "<table class='table'>";
+                echo "<thead>
+                    <tr class='text-center'>
+                        <th class='text-secondary fw-light'>ID</th>
+                        <th class='text-secondary fw-light'>Valor</th>
+                        <th class='text-secondary fw-light'>Descrição</th>
+                        <th class='text-secondary fw-light'>Tipo</th>
+                        <th class='text-secondary fw-light'>Categoria</th>
+                        <th class='text-secondary fw-light'>Usuário</th>
+                        <th width='30'></th>
+                        <th width='30'></th>
+                    </tr>
+                </thead>";
+                echo "<tbody>";
+
+                foreach ($transferencias as $resultado){
                     $contador++;
                     echo "<tr class='text-center'>";
-                        echo "<td class='fw-light'>".$resultado['codTransaction']."</td>";
-                        echo "<td class='fw-light'>".$resultado['valueTransaction']."</td>";
-                        echo "<td class='fw-light'>".$resultado['descTransaction']."</td>";   
-                        echo "<td class='fw-light'>".$resultado['typeTransaction']."</td>";   
-                        echo "<td class='fw-light'>".$resultado['categoryTransaction']."</td>";   
-                        echo "<td class='fw-light'>".$resultado['userCod']."</td>";   
-                        echo "<td class='fw-light'>".$resultado['created_at']."</td>";   
-                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-bs-toggle='modal' data-bs-target='#editCategoryModal' data-id='".$resultado['codTransaction']."' data-value='".$resultado['valueTransaction']."' data-desc='".$resultado['descTransaction']."' data-type='".$resultado['typeTransaction']."' data-category='".$resultado['categoryTransaction']."'></a></td>";
-                        echo "<td><i class='bi bi-trash btn btn-dark' data-id='".$resultado['codTransaction']."'></i></td>";
+                    echo "<td class='fw-light'>" . $resultado['codTransaction'] . "</td>";
+                    echo "<td class='fw-light'>" . $resultado['valueTransaction'] . "</td>";
+                    echo "<td class='fw-light'>" . $resultado['descTransaction'] . "</td>";
+                    echo "<td class='fw-light'>" . $resultado['typeTransaction'] . "</td>";
+                    echo "<td class='fw-light'>" . $resultado['categoryTransaction'] . "</td>";
+                    echo "<td class='fw-light'>" . $resultado['userCod'] . "</td>";
+                    echo "<td><a href='#' class='btn btn-outline-dark bi-pencil' data-id='".$resultado['codTransaction']."' data-value='".$resultado['valueTransaction']."' data-desc='".$resultado['descTransaction']."' data-type='".$resultado['typeTransaction']."' data-category='".$resultado['categoryTransaction']."' data-user='".$resultado['userCod']."'></a></td>";
+                    echo "<td><a href='#' class='btn btn-dark bi-trash' data-id='".$resultado['codTransaction']."'></a></td>";
                     echo "</tr>";
                 }
-                echo "
-                    </tbody>
-                </table>
-                ";
+
+                echo "</tbody>";
+                echo "</table>";
             } else {
-                echo "Nenhum dado encontrado.";
+                echo "Nenhuma transferência encontrada.";
             }
         } catch (Exception $e) {
-            echo "Erro: ".$e->getMessage();
+            echo "Erro: " . $e->getMessage();
         }
     }
     public function totalMetas() {
@@ -178,6 +176,7 @@ class Mostrar extends CriaPaginacao {
             $this->setMaximoLinks(9);
             $this->setSQL($sql);
             $this->iniciaPaginacao();
+            $contador = 0;
         
             $produtos = $this->results();
         
@@ -201,6 +200,7 @@ class Mostrar extends CriaPaginacao {
                     <tbody>
                 ";
                 foreach ($produtos as $resultado) {
+                    $contador++;
                     echo "<tr class='text-center'>";
                         echo "<td class='fw-light text-dark'>" . $resultado['codGoal'] . "</td>";
                         echo "<td class='fw-light text-dark'>" . $resultado['nameGoal'] . "</td>";
@@ -210,8 +210,8 @@ class Mostrar extends CriaPaginacao {
                         echo "<td class='fw-light text-dark'>" . $resultado['amountRemaining'] . "</td>";
                         echo "<td class='fw-light text-dark'>" . $resultado['userCod'] . "</td>";
                         echo "<td class='fw-light text-dark'>" . $resultado['created_at'] . "</td>";
-                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-bs-toggle='modal' data-bs-target='#editCategoryModal' data-id='".$resultado['codGoal']."' data-name='".$resultado['nameGoal']."' data-category='".$resultado['categoryGoal']."' data-desc='".$resultado['descGoal']."' data-amountSaved='".$resultado['amountSaved']."' data-total='".$resultado['amountRemaining']."' data-created='".$resultado['created_at']."' data-userCod='".$resultado['userCod']."'></a></td>";
-                        echo "<td><a href='#' class='bi bi-trash text-black fs-5' data-id='" . $resultado['codGoal'] . "'></a></td>";
+                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-bs-toggle='modal' data-bs-target='#editCategoryModal' data-id='".$resultado['codGoal']."' data-name='".$resultado['nameGoal']."' data-category='".$resultado['categoryGoal']."' data-desc='".$resultado['descGoal']."' data-saved='".$resultado['amountSaved']."' data-remaining='".$resultado['amountRemaining']."' data-created='".$resultado['created_at']."' data-userCod='".$resultado['userCod']."'></a></td>";
+                        echo "<td><a href='#' class='bi bi-trash btn btn-dark fs-5' data-id='" . $resultado['codGoal'] . "'></a></td>";
                     echo "</tr>";
                 }
                 echo "

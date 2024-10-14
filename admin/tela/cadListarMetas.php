@@ -7,12 +7,11 @@ if (isset($_POST['enviar'])) {
     $categoryGoal = $_POST['categoryGoal'];
     $descGoal = $_POST['descGoal'];
     $amountSaved = $_POST['amountSaved'];
-    $amountRemaining = $_POST['amountRemaining'];
-    $created_at = date("Y-m-d H:i:s");  // Data e hora atuais
+    $totalGoal = $_POST['totalGoal'];
     $userCod = $_POST['userCod'];
 
     $Metas = new Adicionar();
-    $Metas->adicionarMetas($nameGoal, $categoryGoal, $descGoal, $amountSaved, $amountRemaining, $created_at, $userCod);
+    $Metas->adicionarMeta($nameGoal, $categoryGoal, $descGoal, $amountSaved, $totalGoal, $userCod);
 }
 
 // Editar
@@ -28,7 +27,7 @@ if (isset($_POST['editar'])) {
     $userCod = $_POST['userCod'];
 
     $Metas = new Alterar();
-    $Metas->alterarMetas($codGoal, $nameGoal, $categoryGoal, $descGoal, $amountSaved, $amountRemaining, $userCod);
+    $Metas->alterarMeta($codGoal, $nameGoal, $categoryGoal, $descGoal, $amountSaved, $amountRemaining, $userCod);
 }
 
 // Apagar
@@ -37,7 +36,7 @@ include_once("../classe/ApagarItem.php");
 if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codGoal'])) {
     $codGoal = intval($_GET['codGoal']);
     $apagarMetas = new Apagar();
-    $apagarMetas->apagarMetas($codGoal);
+    $apagarMetas->apagarMeta($codGoal);
 }
 ?>
 
@@ -102,7 +101,17 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codGo
                     </div>
                     <div class="mb-3">
                         <label for="categoryGoal" class="form-label">Categoria</label>
-                        <input type="text" class="form-control" id="categoryGoal" name="categoryGoal" required>
+                        <select class="form-select" id="categoryGoal" name="categoryGoal" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Moradia">Moradia</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Vestuário">Vestuário</option>
+                            <option value="Economia">Economia ou Investimentos</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="descGoal" class="form-label">Descrição</label>
@@ -113,8 +122,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codGo
                         <input type="number" class="form-control" id="amountSaved" name="amountSaved" required>
                     </div>
                     <div class="mb-3">
-                        <label for="amountRemaining" class="form-label">Valor Restante</label>
-                        <input type="number" class="form-control" id="amountRemaining" name="amountRemaining" required>
+                        <label for="totalGoal" class="form-label">Valor Total</label>
+                        <input type="number" class="form-control" id="totalGoal" name="totalGoal" required>
                     </div>
                     <div class="mb-3">
                         <label for="userCod" class="form-label">Código do Usuário</label>
@@ -144,9 +153,20 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codGo
                         <input type="text" class="form-control" id="editNameGoal" name="nameGoal" required>
                     </div>
                     <div class="mb-3">
-                        <label for="editCategoryGoal" class="form-label">Categoria</label>
-                        <input type="text" class="form-control" id="editCategoryGoal" name="categoryGoal" required>
-                    </div>
+                    <label for="editCategoryGoal" class="form-label">Categoria</label>
+                    <select class="form-select" id="editCategoryGoal" name="categoryGoal" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Moradia">Moradia</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Vestuário">Vestuário</option>
+                        <option value="Economia">Economia ou Investimentos</option>
+
+                    </select>
+                </div>
                     <div class="mb-3">
                         <label for="editDescGoal" class="form-label">Descrição</label>
                         <input type="text" class="form-control" id="editDescGoal" name="descGoal">
@@ -156,8 +176,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['codGo
                         <input type="number" class="form-control" id="editAmountSaved" name="amountSaved" required>
                     </div>
                     <div class="mb-3">
-                        <label for="editAmountRemaining" class="form-label">Valor Restante</label>
-                        <input type="number" class="form-control" id="editAmountRemaining" name="amountRemaining" required>
+                        <label for="editTotalGoal" class="form-label">Valor Total</label>
+                        <input type="number" class="form-control" id="editTotalGoal" name="totalGoal" required>
                     </div>
                     <div class="mb-3">
                         <label for="editUserCod" class="form-label">Código do Usuário</label>
@@ -202,7 +222,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('editCategoryGoal').value = this.dataset.category;
             document.getElementById('editDescGoal').value = this.dataset.desc;
             document.getElementById('editAmountSaved').value = this.dataset.saved;
-            document.getElementById('editAmountRemaining').value = this.dataset.remaining;
+            document.getElementById('editTotalGoal').value = this.dataset.remaining;
             document.getElementById('editUserCod').value = this.dataset.usercod;
 
             // Exibe o modal de edição
