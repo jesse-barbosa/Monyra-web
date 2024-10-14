@@ -77,7 +77,7 @@
                         <h2 class="card-title">Plano Básico</h2>
                         <h3 class="card-price">R$ 29,90/mês</h3>
                         <p class="card-text">Ideal para quem está começando a organizar suas finanças.</p>
-                        <button class="btn btn-purple form-control text-white">Assinar</button>
+                        <button class="btn form-control text-white card-btn">Assinar</button>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                         <h2 class="card-title">Plano Padrão</h2>
                         <h3 class="card-price">R$ 49,90/mês</h3>
                         <p class="card-text">Para quem deseja ter mais controle e recursos financeiros.</p>
-                        <button class="btn btn-purple form-control text-white">Assinar</button>
+                        <button class="btn form-control text-white card-btn">Assinar</button>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                         <h2 class="card-title">Plano Premium</h2>
                         <h3 class="card-price">R$ 79,90/mês</h3>
                         <p class="card-text">Para aqueles que buscam a melhor experiência e benefícios exclusivos.</p>
-                        <button class="btn btn-purple form-control text-white">Assinar</button>
+                        <button class="btn form-control text-white card-btn">Assinar</button>
                     </div>
                 </div>
             </div>

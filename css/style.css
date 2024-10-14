@@ -26,10 +26,7 @@
 body {
     background-color: #151515 !important;
 }
-/* Botões personalizados */
-.btn-purple {
-    background-color: #5019D4 !important;
-}
+
 /* header */
 header {
     position: sticky;
@@ -41,7 +38,7 @@ header {
     align-items: center;
     margin: 1rem auto 4rem auto; 
     max-width: 1400px;
-    z-index: 1;
+    z-index: 1          ;
 }
 .header-logo {
     color: #FFFFFFE5;
@@ -89,6 +86,10 @@ h1 {
 .card {
     background-color: #222 !important;
     color: #fff !important;
+    transition: all 0.2s;
+}
+.card:hover {
+    transform: scale(1.03);   
 }
 
 .section-img {
@@ -111,6 +112,13 @@ h1 {
 .card-price {
     font-size: 1.5rem;
     margin: 1rem 0;
+}
+.card-btn {
+    background-color: #5019D4 !important;
+    transition: all 0.2s;
+}
+.card-btn:hover {
+    background-color: #4410be !important;
 }
 
 /* Responsividade */
