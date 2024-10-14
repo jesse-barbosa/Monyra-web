@@ -8,7 +8,6 @@
                 <ul class="header-links d-flex gap-4">
                     <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="#home">Início</a></li>
                     <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="planos.php">Planos</a></li>
-                    <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="suporte.php">Suporte</a></li>
                 </ul>
             </div>
             <div class="col-2 text-end">
