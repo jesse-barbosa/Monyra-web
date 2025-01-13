@@ -1,31 +1,34 @@
-# # Passo a passo para execução do projeto
-
-Siga as instruções abaixo para conseguir configurar seu ambiente PHP e executar o projeto na sua máquina.
-
-# Pré-requisitos
+# Requisitos
 
 - Servidor Local Apache e MySQL (Sugestão: XAMPP)
 
-# Passos para executar o projeto
+# Instalação e Execução
 
 ## 1. Instale o XAMPP
 
-### - XAMPP é um pacote com os principais servidores de código aberto, incluindo FTP, banco de dados MySQL e Apache com suporte para a linguagem PHP.
+Se ainda não tem o XAMPP instalado, baixe e instale a versão mais recente no [site oficial](https://www.apachefriends.org/pt_br/download.html).
 
-## 2. Clone o repositório
+## 2. Clonando o projeto
 
-## - Primeiro, clone o repositório do projeto (ou baixe o repositório pelo GitHub) dentro da pasta htdocs
+No terminal, vá até a pasta htdocs localizada em:
+Windows:
+
+    C:\xampp\htdocs
+
+Dentro de htdocs, faça um clone do projeto:
+
     git clone https://github.com/jesse-barbosa/monyra.git
 
-## 3. Importe o banco de dados
+## 3. Importando o banco
 
-### - Primeiro, ligue os servidor Apache e MySQL no XAMPP
-### - Acesse o painel PhpMyAdmin: Digite "localhost/" no endereço de pesquisa do seu navegador
-### - Crie um novo banco de dados com o nome "monyra"
-### - Clique na opção de importar, e importe o arquivo SQL localizado na pasta "banco" do projeto
+3.1 Primeiro, ligue os servidor Apache e MySQL no XAMPP
+3.3 Acesse o painel PhpMyAdmin: Digite "localhost/" no endereço de pesquisa do seu navegador
+3.4 - Crie um novo banco de dados com o nome "monyra"
+3.5 - Clique na opção de importar
+3.6 - Importe o arquivo SQL localizado na pasta "banco" do projeto
 
 ## 4. Rode o projeto
 
-### - Acesse "localhost/monyra/" no endereço de pesquisa do seu navegador, e pronto!
+# Com os servidores Apache e MySql do XAMPP ligados, acesse o projeto no seu navegador:
 
-Se você encontrar algum problema ou tiver alguma dúvida, por favor, verifique a documentação do PhpMyAdmin ou entre em contato comigo por E-mail.
+    localhost/monyra/
