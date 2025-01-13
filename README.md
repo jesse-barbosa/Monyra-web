@@ -17,7 +17,7 @@ Windows:
 
 Dentro de htdocs, faça um clone do projeto:
 
-    git clone https://github.com/jesse-barbosa/monyra.git
+    git clone https://github.com/jesse-barbosa/monyra-web.git
 
 ## 3. Importando o banco
 
@@ -31,4 +31,4 @@ Dentro de htdocs, faça um clone do projeto:
 
 # Com os servidores Apache e MySql do XAMPP ligados, acesse o projeto no seu navegador:
 
-    localhost/monyra/
+    localhost/monyra-web/
