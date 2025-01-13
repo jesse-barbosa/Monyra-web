@@ -21,11 +21,11 @@ Dentro de htdocs, faça um clone do projeto:
 
 ## 3. Importando o banco
 
-3.1 Primeiro, ligue os servidor Apache e MySQL no XAMPP
-3.3 Acesse o painel PhpMyAdmin: Digite "localhost/" no endereço de pesquisa do seu navegador
-3.4 - Crie um novo banco de dados com o nome "monyra"
-3.5 - Clique na opção de importar
-3.6 - Importe o arquivo SQL localizado na pasta "banco" do projeto
+- 3.1 Primeiro, ligue os servidor Apache e MySQL no XAMPP
+- 3.3 Acesse o painel PhpMyAdmin: Digite "localhost/" no endereço de pesquisa do seu navegador
+- 3.4 - Crie um novo banco de dados com o nome "monyra"
+- 3.5 - Clique na opção de importar
+- 3.6 - Importe o arquivo SQL localizado na pasta "banco" do projeto
 
 ## 4. Rode o projeto
 
