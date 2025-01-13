@@ -19,7 +19,7 @@
                 <ul class="header-links d-flex gap-4">
                     <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="index.php">Início</a></li>
                     <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="#planos">Planos</a></li>
-                    <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="#suporte">Suporte</a></li>
+                    <li><a class="header-link link link-underline link-underline-opacity-0 link-opacity-75-hover link-light fs-4" href="#baixar">Baixar</a></li>
                 </ul>
             </div>
             <div class="col-2 text-end">
@@ -59,8 +59,8 @@
                 <img src="img/smartphone3.png" class="section-img w-75" alt="Smartphone 3">
             </div>
             <div class="col">
-                <h1>COMPARTILHE METAS E OBJETIVOS</h1>
-                <p>Compartilhe metas e objetivos com seus amigos e realize juntos sonhos incríveis.</p>
+                <h1>DEFINA METAS E OBJETIVOS</h1>
+                <p>Defina metas e objetivos, acompanhe seu progresso e realize sonhos incríveis.</p>
             </div>
         </div>
     </div>
