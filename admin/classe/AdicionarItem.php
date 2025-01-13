@@ -10,7 +10,7 @@ class Adicionar extends Conexao {
     // Adicionar usuário
     public function adicionarUsuario($nameUser, $emailUser, $passwordUser, $descUser, $incomeUser, $balanceUser, $iconUser, $type_user){
         try {
-            $sql = "INSERT INTO tbusers (nameUser, emailUser, passwordUser, descUser, incomeUser, balanceUser, iconUser, typeUser)
+            $sql = "INSERT INTO tbusers (nameUser, emailUser, passwordUser, descUser, incomeUser, balanceUser, iconUser, type_user)
                     VALUES ('$nameUser', '$emailUser', '$passwordUser', '$descUser', '$incomeUser', '$balanceUser', '$iconUser', '$type_user')";
             if ($this->execSql($sql)) {
                 echo "<script>alert('Usuário adicionado com sucesso!');window.location.href = 'index.php?tela=cadListarUsuario'</script>";

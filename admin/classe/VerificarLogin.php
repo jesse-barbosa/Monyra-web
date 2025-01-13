@@ -9,7 +9,7 @@ class VerificarLogin extends Conexao{
 public function verificarLogin($email, $senha) {
     try {
         // Consulta apenas o email e o hash da senha, sem incluir a senha diretamente
-        $sql = "SELECT * FROM tbusers WHERE emailUser = '$email' AND typeUser = '1'";
+        $sql = "SELECT * FROM tbusers WHERE emailUser = '$email' AND type_user = '1'";
         $query = self::execSql($sql);
         $resultado = self::listarDados($query);
         $dados = self::contarDados($query);
@@ -23,7 +23,7 @@ public function verificarLogin($email, $senha) {
                 session_start();
                 $_SESSION['email'] = $email;
                 $_SESSION['nome'] = $resultado[0]['nameUser'];
-                $_SESSION['type_user'] = $resultado[0]['typeUser'];
+                $_SESSION['type_user'] = $resultado[0]['type_user'];
 
                 header('Location: /monyra-website/admin/tela/index.php?tela=');
             } else {

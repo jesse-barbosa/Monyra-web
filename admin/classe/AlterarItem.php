@@ -10,11 +10,11 @@ class Alterar extends Conexao {
     public function alterarUsuario($idUsuario, $name, $email, $senha = null, $description, $income, $balance, $icon, $type) {
         try {
             if ($senha) {
-                $sql = "UPDATE tbusers SET nameUser = ?, emailUser = ?, passwordUser = ?, descUser = ?, incomeUser = ?, balanceUser = ?, iconUser = ?, typeUser = ? WHERE codUser = ?";
+                $sql = "UPDATE tbusers SET nameUser = ?, emailUser = ?, passwordUser = ?, descUser = ?, incomeUser = ?, balanceUser = ?, iconUser = ?, type_user = ? WHERE codUser = ?";
                 $stmt = $this->getConnection()->prepare($sql);
                 $stmt->bind_param("sssssdsii", $name, $email, $senha, $description, $income, $balance, $icon, $type, $idUsuario);
             } else {
-                $sql = "UPDATE tbusers SET nameUser = ?, emailUser = ?, descUser = ?, incomeUser = ?, balanceUser = ?, iconUser = ?, typeUser = ? WHERE codUser = ?";
+                $sql = "UPDATE tbusers SET nameUser = ?, emailUser = ?, descUser = ?, incomeUser = ?, balanceUser = ?, iconUser = ?, type_user = ? WHERE codUser = ?";
                 $stmt = $this->getConnection()->prepare($sql);
                 $stmt->bind_param("ssssdsii", $name, $email, $description, $income, $balance, $icon, $type, $idUsuario);
             }

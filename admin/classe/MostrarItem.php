@@ -74,8 +74,8 @@ class Mostrar extends CriaPaginacao {
                         echo "<td class='fw-light'>".$resultado['incomeUser']."</td>";
                         echo "<td class='fw-light'>".$resultado['balanceUser']."</td>";
                         echo "<td class='fw-light'>".$resultado['iconUser']."</td>";
-                        echo "<td class='fw-light'>".$resultado['typeUser']."</td>";
-                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-codUser='".$resultado['codUser']."' data-nameUser='".$resultado['nameUser']."' data-emailUser='".$resultado['emailUser']."' data-descUser='".$resultado['descUser']."' data-incomeUser='".$resultado['incomeUser']."' data-balanceUser='".$resultado['balanceUser']."' data-iconUser='".$resultado['iconUser']."' data-typeuser='".$resultado['typeUser']."'></a></td>";
+                        echo "<td class='fw-light'>".$resultado['type_user']."</td>";
+                        echo "<td><a href='#' class='bi bi-pencil btn btn-outline-dark' data-codUser='".$resultado['codUser']."' data-nameUser='".$resultado['nameUser']."' data-emailUser='".$resultado['emailUser']."' data-descUser='".$resultado['descUser']."' data-incomeUser='".$resultado['incomeUser']."' data-balanceUser='".$resultado['balanceUser']."' data-iconUser='".$resultado['iconUser']."' data-typeuser='".$resultado['type_user']."'></a></td>";
                         echo "<td><a href='#' class='bi bi-trash btn btn-dark' data-id='".$resultado['codUser']."'></a></td>";
                     echo "</tr>";
                 }
