@@ -37,8 +37,9 @@ header {
     justify-content: space-around;
     align-items: center;
     margin: 1rem auto 4rem auto; 
+    border-radius: 0 0 10rem 10rem;
     max-width: 1400px;
-    z-index: 1          ;
+    z-index: 1;
 }
 .header-logo {
     color: #FFFFFFE5;
