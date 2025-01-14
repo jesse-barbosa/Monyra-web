@@ -1,14 +1,10 @@
 # Requisitos
 
-- Servidor Local Apache e MySQL (Sugestão: XAMPP)
+- Servidor Local Apache e MySQL (Sugestão: [XAMPP](https://www.apachefriends.org/pt_br/download.html))
 
 # Instalação e Execução
 
-## 1. Instale o XAMPP
-
-Se ainda não tem o XAMPP instalado, baixe e instale a versão mais recente no [site oficial](https://www.apachefriends.org/pt_br/download.html).
-
-## 2. Clonando o projeto
+## 2. Clone o projeto
 
 No terminal, vá até a pasta htdocs localizada em:
 Windows:
@@ -19,7 +15,7 @@ Dentro de htdocs, faça um clone do projeto:
 
     git clone https://github.com/jesse-barbosa/monyra-web.git
 
-## 3. Importando o banco
+## 3. Importe o banco
 
 - 3.1 Primeiro, ligue os servidor Apache e MySQL no XAMPP
 - 3.3 Acesse o painel PhpMyAdmin: Digite "localhost/" no endereço de pesquisa do seu navegador
