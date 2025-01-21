@@ -39,6 +39,6 @@ if (isset($_SESSION['email']) && ($_SESSION['type_user'] == 1 || $_SESSION['type
  }else{
     unset($_SESSION["nome"]);
     unset($_SESSION["senha"]);
-    header('Location: /monyra-website/admin/tela/index.php?tela=');
+    header('Location: /Monyra-web/admin/tela/index.php?tela=');
      }
 ?>

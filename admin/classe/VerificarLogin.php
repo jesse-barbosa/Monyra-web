@@ -25,7 +25,7 @@ public function verificarLogin($email, $senha) {
                 $_SESSION['nome'] = $resultado[0]['nameUser'];
                 $_SESSION['type_user'] = $resultado[0]['type_user'];
 
-                header('Location: /monyra-website/admin/tela/index.php?tela=');
+                header('Location: /Monyra-web/admin/tela/index.php?tela=');
             } else {
                 echo "<div class='alert alert-danger mt-3'>Email ou senha inválidos.</div>";
             }
