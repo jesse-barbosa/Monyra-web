@@ -4,7 +4,7 @@
         <a href="#" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
             <i class="bi bi-wallet fs-1 text-light"></i>
         </a>
-        <p class="text-secondary">Monyra &copy; 2024</p>
+        <p class="text-secondary">Monyra &copy; 2025</p>
         </div>
         <div class="col mb-3">
         <h5>Links</h5>
